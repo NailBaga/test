@@ -2,6 +2,11 @@
 
 namespace app\models;
 
+
+use app\events\EventTaskCreated;
+use app\events\EventTaskUpdated;
+use app\models\traits\EventTrait;
+
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -27,14 +32,16 @@ use yii\db\ActiveRecord;
  * @property boolean $isDone
  *
  * @property Customer $customer
- * @property User $user
+ * @property \app\models\User $user
  *
  *
  * @property string $isInbox
  * @property string $statusText
  */
-class Task extends ActiveRecord
+class Task extends ActiveRecord implements AggregateRoot
 {
+
+    use EventTrait;
     const STATUS_NEW = 0;
     const STATUS_DONE = 1;
     const STATUS_CANCEL = 3;
@@ -42,6 +49,25 @@ class Task extends ActiveRecord
     const STATE_INBOX = 'inbox';
     const STATE_DONE = 'done';
     const STATE_FUTURE = 'future';
+
+    public static function create(string  $id, User $user, string $title): self
+    {
+        $task = new self();
+        $task->id = $id;
+        $task->user_id = $user->id;
+        $task->title = $title;
+        $task->recordEvent(new EventTaskCreated($task));
+        return $task;
+    }
+
+    public function edit(string  $id, User $user, string $title): void
+    {
+        $this->id = $id;
+        $this->user_id = $user->id;
+        $this->title = $title;
+        $this->recordEvent(new EventTaskUpdated($this));
+    }
+
 
     /**
      * @inheritdoc

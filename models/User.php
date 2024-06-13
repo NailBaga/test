@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\traits\EventTrait;
 use Yii;
 use yii\db\ActiveRecord;
 
@@ -16,8 +17,9 @@ use yii\db\ActiveRecord;
  * @property integer $updated_at
  * @property string $statusText
  */
-class User extends ActiveRecord
+class User extends ActiveRecord implements AggregateRoot
 {
+    use EventTrait;
     const STATUS_DELETED = 0;
     const STATUS_HIDDEN = 1;
     const STATUS_ACTIVE = 10;
@@ -52,6 +54,11 @@ class User extends ActiveRecord
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_HIDDEN]],
         ];
+    }
+
+    public function getUsername(): string
+    {
+        return $this->username;
     }
 
     /**

@@ -1,0 +1,19 @@
+<?php
+
+use app\models\Call;
+use app\models\search\HistorySearch;
+
+/** @var $model HistorySearch */
+        /** @var Call $call */
+        $call = $model->call;
+        $answered = $call && $call->status == Call::STATUS_ANSWERED;
+
+        echo $this->render('_item_common', [
+            'user' => $model->user,
+            'content' => $call->comment ?? '',
+            'body' => ($call ? $call->totalStatusText . ($call->getTotalDisposition(false) ? " <span class='text-grey'>" . $call->getTotalDisposition(false) . "</span>" : "") : '<i>Deleted</i> '),
+            'footerDatetime' => $model->ins_ts,
+            'footer' => isset($call->applicant) ? "Called <span>{$call->applicant->name}</span>" : null,
+            'iconClass' => $answered ? 'md-phone bg-green' : 'md-phone-missed bg-red',
+            'iconIncome' => $answered && $call->direction == Call::DIRECTION_INCOMING
+        ]);

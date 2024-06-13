@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\traits\EventTrait;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -27,8 +28,9 @@ use yii\db\ActiveRecord;
  * @property Customer $customer
  * @property User $user
  */
-class Sms extends ActiveRecord
+class Sms extends ActiveRecord implements AggregateRoot
 {
+    use EventTrait;
     const DIRECTION_INCOMING = 0;
     const DIRECTION_OUTGOING = 1;
 

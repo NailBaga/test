@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\traits\EventTrait;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -21,8 +22,9 @@ use yii\db\ActiveRecord;
  *
  * @property User $user
  */
-class Fax extends ActiveRecord
+class Fax extends ActiveRecord implements AggregateRoot
 {
+    use EventTrait;
     const DIRECTION_INCOMING = 0;
     const DIRECTION_OUTGOING = 1;
 

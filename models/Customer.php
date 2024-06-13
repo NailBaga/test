@@ -3,6 +3,7 @@
 namespace app\models;
 
 
+use app\models\traits\EventTrait;
 use Yii;
 use yii\db\ActiveRecord;
 
@@ -13,8 +14,9 @@ use yii\db\ActiveRecord;
  * @property integer $id
  * @property string $name
  */
-class Customer extends ActiveRecord
+class Customer extends ActiveRecord implements AggregateRoot
 {
+    use EventTrait;
     const QUALITY_ACTIVE = 'active';
     const QUALITY_REJECTED = 'rejected';
     const QUALITY_COMMUNITY = 'community';
