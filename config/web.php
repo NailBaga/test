@@ -6,7 +6,10 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        'log',
+        'app\bootstrap\SetUp',
+    ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -21,7 +24,7 @@ $config = [
 //            'class' => 'yii\caching\FileCache',
 //        ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\entities\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
