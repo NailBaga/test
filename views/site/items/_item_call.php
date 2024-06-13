@@ -1,6 +1,6 @@
 <?php
 
-use app\models\Call;
+use app\models\entities\Call;
 use app\models\search\HistorySearch;
 
 /** @var $model HistorySearch */

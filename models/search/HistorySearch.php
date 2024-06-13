@@ -2,7 +2,7 @@
 
 namespace app\models\search;
 
-use app\models\History;
+use app\models\entities\History;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 

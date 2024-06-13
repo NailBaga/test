@@ -2,7 +2,7 @@
 
 namespace app\events;
 
-use app\models\Call;
+use app\models\entities\Call;
 use Yii;
 
 class EventOutgoingCall implements  EventBody

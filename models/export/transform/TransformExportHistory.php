@@ -3,7 +3,7 @@
 namespace app\models\export\transform;
 
 use app\events\EventFactoryCreator;
-use app\models\History;
+use app\models\entities\History;
 
 
 class TransformExportHistory implements Transform

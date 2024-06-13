@@ -2,7 +2,7 @@
 
 namespace app\events;
 
-use app\models\Task;
+use app\models\entities\Task;
 use Yii;
 
 class EventTaskUpdated implements  EventBody

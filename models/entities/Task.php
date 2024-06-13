@@ -1,12 +1,11 @@
 <?php
 
-namespace app\models;
+namespace app\models\entities;
 
 
 use app\events\EventTaskCreated;
 use app\events\EventTaskUpdated;
 use app\models\traits\EventTrait;
-
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -32,7 +31,7 @@ use yii\db\ActiveRecord;
  * @property boolean $isDone
  *
  * @property Customer $customer
- * @property \app\models\User $user
+ * @property \app\models\entities\User $user
  *
  *
  * @property string $isInbox

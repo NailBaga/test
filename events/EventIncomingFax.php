@@ -3,7 +3,7 @@
 namespace app\events;
 
 
-use app\models\Fax;
+use app\models\entities\Fax;
 use Yii;
 
 class EventIncomingFax implements  EventBody

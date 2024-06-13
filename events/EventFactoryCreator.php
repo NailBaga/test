@@ -2,7 +2,7 @@
 
 namespace app\events;
 
-use app\models\History;
+use app\models\entities\History;
 
 class EventFactoryCreator
 {

@@ -3,7 +3,7 @@
 namespace app\events;
 
 
-use app\models\Sms;
+use app\models\entities\Sms;
 use Yii;
 
 class EventOutgoingSms implements  EventBody

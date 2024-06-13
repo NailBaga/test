@@ -1,6 +1,6 @@
 <?php
 
-use app\models\Customer;
+use app\models\entities\Customer;
 
 /** @var $model \app\models\search\HistorySearch */
 echo $this->render('_item_statuses_change', [

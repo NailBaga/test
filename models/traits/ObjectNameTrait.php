@@ -2,12 +2,12 @@
 
 namespace app\models\traits;
 
-use app\models\Call;
-use app\models\Customer;
-use app\models\Fax;
-use app\models\Sms;
-use app\models\Task;
-use app\models\User;
+use app\models\entities\Call;
+use app\models\entities\Customer;
+use app\models\entities\Fax;
+use app\models\entities\Sms;
+use app\models\entities\Task;
+use app\models\entities\User;
 
 trait ObjectNameTrait
 {

@@ -1,6 +1,6 @@
 <?php
 
-use app\models\User;
+use app\models\entities\User;
 use yii\helpers\Html;
 
 /* @var $user User */

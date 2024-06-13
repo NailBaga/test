@@ -3,8 +3,8 @@
 namespace app\listeners;
 
 use app\events\EventTaskCreated;
-use app\models\History;
-use app\models\Task;
+use app\models\entities\History;
+use app\models\entities\Task;
 use app\repositories\HistoryRepository;
 
 class TaskCreatedListener

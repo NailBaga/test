@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace app\models\entities;
 
 use app\models\traits\EventTrait;
 use app\models\traits\ObjectNameTrait;

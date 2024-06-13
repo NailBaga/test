@@ -1,7 +1,7 @@
 <?php
 
+use app\models\entities\Sms;
 use app\models\search\HistorySearch;
-use app\models\Sms;
 
 /** @var $model HistorySearch */
 echo $this->render('_item_common', [

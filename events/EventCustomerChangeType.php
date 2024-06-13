@@ -2,8 +2,8 @@
 
 namespace app\events;
 
-use app\models\Customer;
-use app\models\History;
+use app\models\entities\Customer;
+use app\models\entities\History;
 use Yii;
 
 class EventCustomerChangeType implements  EventBody

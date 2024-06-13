@@ -3,7 +3,7 @@
 namespace app\repositories;
 
 use app\dispatchers\EventDispatcher;
-use app\models\History;
+use app\models\entities\History;
 
 class HistoryRepository
 {

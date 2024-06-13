@@ -3,7 +3,7 @@
 namespace app\repositories;
 
 use app\dispatchers\EventDispatcher;
-use app\models\Task;
+use app\models\entities\Task;
 
 class TaskRepository
 {
